@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  api-challenge-php:
+    container_name: api-challenge-php
+    hostname: api-challenge-php
+    build: ./docker/php
+    mem_limit: 512m
+    volumes:
+      - ./:/docker
+      - ./source/api-challenge:/var/www/html
+    ports:
+      - "8222:80"
+
+  api-challenge-node:
+    container_name: api-challenge-node
+    hostname: api-challenge-node
+    build: ./docker/node
+    mem_limit: 1024m
+    volumes:
+      - ./:/docker
